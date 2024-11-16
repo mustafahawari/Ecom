@@ -4,13 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using Ecom.DataAccess.Data;
 using Ecom.DataAccess.Repository;
-using Ecom.Models.Category;
+using Ecom.Models;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
-namespace Ecom.Controllers
+namespace Ecom.Areas.Admin.Controllers
 {
+    [Area("Admin")]
     public class CategoryController : Controller
     {
 
@@ -55,8 +56,8 @@ namespace Ecom.Controllers
             {
                 return NotFound();
             }
-            Category? categoryFromDb = _categoryRepository.Get(u => u.CategoryId ==id);
-            if(categoryFromDb == null)
+            Category? categoryFromDb = _categoryRepository.Get(u => u.CategoryId == id);
+            if (categoryFromDb == null)
             {
                 return NotFound();
             }
@@ -66,7 +67,7 @@ namespace Ecom.Controllers
         [HttpPost]
         public IActionResult Edit(Category category)
         {
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _categoryRepository.Update(category);
                 _categoryRepository.Save();
@@ -95,7 +96,7 @@ namespace Ecom.Controllers
         {
 
             Category? categoryToDelete = _categoryRepository.Get(cat => cat.CategoryId == id);
-            if(categoryToDelete == null)
+            if (categoryToDelete == null)
             {
                 return NotFound();
             }

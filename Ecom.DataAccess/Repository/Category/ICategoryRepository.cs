@@ -1,5 +1,5 @@
 ﻿using System;
-using Ecom.Models.Category;
+using Ecom.Models;
 namespace Ecom.DataAccess.Repository
 {
 	public interface ICategoryRepository: IRepository<Category>

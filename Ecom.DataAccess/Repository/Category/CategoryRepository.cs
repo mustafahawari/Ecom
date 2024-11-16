@@ -1,6 +1,6 @@
 ﻿using System;
 using Ecom.DataAccess.Data;
-using Ecom.Models.Category;
+using Ecom.Models;
 
 namespace Ecom.DataAccess.Repository
 {
